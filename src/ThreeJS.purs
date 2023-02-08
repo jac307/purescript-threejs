@@ -240,8 +240,6 @@ foreign import data MeshPhongMaterial :: Type
 
 foreign import newMeshPhongMaterial :: forall params. Record params -> Effect MeshPhongMaterial
 
-
-
 -------------
 
 foreign import setColorInt :: forall a. a -> Int -> Effect Unit
@@ -249,6 +247,8 @@ foreign import setColorInt :: forall a. a -> Int -> Effect Unit
 foreign import addAnything :: forall a b. a -> b -> Effect Unit
 
 foreign import addAnythingToScene :: forall a. Scene -> a -> Effect Unit
+
+foreign import disposeAnything :: forall a. a -> Effect Unit
 
 foreign import cloneObject3D :: forall a b. a -> Boolean -> Effect b -- yikes!!!
 
@@ -365,6 +365,8 @@ foreign import data PointLightHelper :: Type
 foreign import newPointLightHelper :: PointLight -> Number -> Int -> Effect PointLightHelper
 
 foreign import data SpotLightHelper :: Type
+
+foreign import data SpotLight :: Type
 
 foreign import newSpotLightHelper :: SpotLight -> Int -> Effect SpotLightHelper
 

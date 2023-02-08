@@ -49,25 +49,23 @@ export const newCSS3DRenderer = parameters => () => new THREE.CSS3DRenderer(para
 export const newSVGRenderer = () => new THREE.SVGRenderer();
 
 
-
 // 3D Object Loaders
 
 //OBJ
-  export const newOBJLoader = () => new THREE.OBJLoader();
+export const newOBJLoader = () => new THREE.OBJLoader();
 
-  // note the handling of the callback in the line below...
-  export const loadOBJ = loader => url => cb => () => loader.load(url,x => cb(x)());
+// note the handling of the callback in the line below...
+export const loadOBJ = loader => url => cb => () => loader.load(url,x => cb(x)());
 
-  //MTL
-  export const newMTLLoader = () => new THREE.MTLLoader();
+//MTL
+export const newMTLLoader = () => new THREE.MTLLoader();
 
-  export const loadMTL= loader => url => cb => () => loader.load(url,x => cb(x)());
+export const loadMTL= loader => url => cb => () => loader.load(url,x => cb(x)());
 
+//GLTF
+export const newGLTFLoader = () => new THREE.GLTFLoader();
 
-  //GLTF
-  export const newGLTFLoader = () => new THREE.GLTFLoader();
-
-  export const loadGLTF1 = loader => url => cb => () => loader.load(url,x => cb(x)());
+export const loadGLTF1 = loader => url => cb => () => loader.load(url,x => cb(x)());
 
 //GLTF+DRACO
 export const newDRACOLoader = () => new THREE.DRACOLoader();
@@ -138,6 +136,8 @@ export const setColorInt = thing => color => () => thing.color = new THREE.Color
 export const addAnything = a => b => () => a.add(b);
 
 export const addAnythingToScene = scene => anything => () => scene.add(anything);
+
+export const disposeAnything = anything => anything => () => anything.dispose();
 
 export const cloneObject3D = object3D => recursive => () => object3D.clone(recursive);
 
