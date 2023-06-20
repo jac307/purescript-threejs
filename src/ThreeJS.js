@@ -178,6 +178,8 @@ export const rotationZ = thing => () => thing.rotation.z;
 
 export const setRotationOfAnything = thing => x => y => z => () => thing.rotation.set(x,y,z);
 
+export const setPositionOfAnything = thing => x => y => z => () => thing.position.set(x,y,z);
+
 export const setScaleOfAnything = thing => x => y => z => () => thing.scale.set(x,y,z);
 
 export const setRepeatOfAnything = thing => u => v => () => thing.repeat.set(u,v);
@@ -524,7 +526,7 @@ export const getElementById = id => () => document.getElementById(id);
 
 export const videoTexture = videoElem => () => new THREE.VideoTexture(videoElem);
 
-// changing
+// Texture Constants
 
 export const clampToEdgeWrapping = THREE.ClampToEdgeWrapping
 
@@ -543,6 +545,31 @@ export const linearFilter = THREE.LinearFilter;
 export const minFilter = texture => filter => () => texture.minFilter = filter;
 
 export const magFilter = texture => filter => () => texture.magFilter = filter;
+
+export const alphaFormat = THREE.AlphaFormat;
+
+export const redFormat = THREE.RedFormat;
+
+export const redIntegerFormat = THREE.RedIntegerFormat;
+
+export const rgFormat = THREE.RGFormat;
+
+export const rgIntegerFormat = THREE.RGIntegerFormat;
+
+export const rgbaFormat = THREE.RGBAFormat;
+
+export const rgbaIntegerFormat = THREE.RGBAIntegerFormat;
+
+export const luminanceFormat = THREE.LuminanceFormat;
+
+export const luminanceAlphaFormat = THREE.LuminanceAlphaFormat;
+
+export const depthFormat = THREE.DepthFormat;
+
+export const depthStencilFormat = THREE.DepthStencilFormat;
+
+export const format = texture => formatID => () => texture.format = formatID;
+
 
 //
 

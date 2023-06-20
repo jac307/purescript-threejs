@@ -358,6 +358,8 @@ setRotationZ o z = do
 
 foreign import setRotationOfAnything :: forall a. a -> Number -> Number -> Number -> Effect Unit
 
+foreign import setPositionOfAnything :: forall a. a -> Number -> Number -> Number -> Effect Unit
+
 foreign import setScaleOfAnything :: forall a. a -> Number -> Number -> Number -> Effect Unit
 
 foreign import setRepeatOfAnything :: forall a. a -> Number -> Number -> Effect Unit
@@ -471,8 +473,6 @@ foreign import data PointLightHelper :: Type
 foreign import newPointLightHelper :: PointLight -> Number -> Int -> Effect PointLightHelper
 
 foreign import data SpotLightHelper :: Type
-
-foreign import data SpotLight :: Type
 
 foreign import newSpotLightHelper :: SpotLight -> Int -> Effect SpotLightHelper
 
@@ -970,7 +970,7 @@ foreign import getElementById :: String -> Effect HTML.HTMLMediaElement
 
 foreign import videoTexture :: HTML.HTMLMediaElement -> Effect TextureLoader
 
---changing
+--Texture Constants
 
 foreign import data Wrapping :: Type
 
@@ -987,12 +987,27 @@ foreign import wrapT :: TextureLoader -> Effect Wrapping -> Effect Unit
 foreign import data Filter :: Type
 
 foreign import nearestFilter :: Effect Filter
-
 foreign import linearFilter :: Effect Filter
 
 foreign import minFilter :: TextureLoader -> Effect Filter -> Effect Unit
 
 foreign import magFilter :: TextureLoader -> Effect Filter -> Effect Unit
+
+foreign import data FormatID :: Type
+
+foreign import alphaFormat :: Effect FormatID
+foreign import redFormat :: Effect FormatID
+foreign import redIntegerFormat :: Effect FormatID
+foreign import rgFormat :: Effect FormatID
+foreign import rgIntegerFormat :: Effect FormatID
+foreign import rgbaFormat :: Effect FormatID
+foreign import rgbaIntegerFormat :: Effect FormatID
+foreign import luminanceFormat :: Effect FormatID
+foreign import luminanceAlphaFormat :: Effect FormatID
+foreign import depthFormat :: Effect FormatID
+foreign import depthStencilFormat :: Effect FormatID
+
+foreign import format :: TextureLoader -> Effect FormatID -> Effect Unit
 
 --
 
